@@ -56,6 +56,18 @@ class _LoginWidgetState extends State<LoginWidget>
           ),
         ],
       ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.bounceOut,
+            delay: 0.0.ms,
+            duration: 1260.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -188,11 +200,12 @@ class _LoginWidgetState extends State<LoginWidget>
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: FaIcon(
-                            FontAwesomeIcons.battleNet,
+                          child: Icon(
+                            Icons.question_mark,
                             color: FlutterFlowTheme.of(context).primary,
                             size: 44.0,
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['iconOnPageLoadAnimation']!),
                         ),
                       ),
                     ).animateOnPageLoad(
@@ -205,7 +218,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Sora',
-                                  fontSize: 32.0,
+                                  fontSize: 42.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w800,
                                 ),
