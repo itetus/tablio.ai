@@ -605,13 +605,31 @@ class _LoginWidgetState extends State<LoginWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              '2024 © Powered by istudio.blue',
+                              '2024 © Powered by ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await launchURL('http://istudio.blue');
+                              },
+                              child: Text(
+                                'istudio.blue',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
                             ),
                           ],
                         ),
