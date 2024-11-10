@@ -505,95 +505,104 @@ class _LoginWidgetState extends State<LoginWidget>
                                   verticalDirection: VerticalDirection.down,
                                   clipBehavior: Clip.none,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 16.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
-                                        },
-                                        text: 'Continue with Google',
-                                        icon: const FaIcon(
-                                          FontAwesomeIcons.google,
-                                          size: 20.0,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 230.0,
-                                          height: 44.0,
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                          elevation: 0.0,
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 2.0,
+                                                  0.0, 0.0, 0.0, 16.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: 'Continue with Google',
+                                            icon: const FaIcon(
+                                              FontAwesomeIcons.google,
+                                              size: 20.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 230.0,
+                                              height: 44.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                              elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              hoverColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          hoverColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
                                         ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 16.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
-                                        },
-                                        text: 'Continue with Apple',
-                                        icon: const FaIcon(
-                                          FontAwesomeIcons.apple,
-                                          size: 20.0,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 230.0,
-                                          height: 44.0,
+                                        Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                          elevation: 0.0,
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 2.0,
+                                                  0.0, 0.0, 0.0, 16.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: 'Continue with Apple',
+                                            icon: const FaIcon(
+                                              FontAwesomeIcons.apple,
+                                              size: 20.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 230.0,
+                                              height: 44.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                              elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              hoverColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          hoverColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
                                         ),
-                                      ),
+                                      ],
                                     ),
                                   ],
                                 ),
