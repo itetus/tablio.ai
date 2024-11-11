@@ -170,7 +170,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       content: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
-                          'Message...',
+                          'Transforme suas mesas em oportunidades.',
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
                                     fontFamily: 'Inter',
@@ -208,7 +208,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       content: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
-                          'Message...',
+                          'Transforme suas mesas em oportunidades.',
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
                                     fontFamily: 'Inter',
