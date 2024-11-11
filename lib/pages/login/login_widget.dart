@@ -2,7 +2,6 @@ import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
@@ -847,15 +846,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                         ),
                                       ),
                                     ],
-                                  ),
-                                  const FlutterFlowWebView(
-                                    content:
-                                        '<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,\'script\',\n\'https://connect.facebook.net/en_US/fbevents.js\');\nfbq(\'init\', \'897369755804045\');\nfbq(\'track\', \'PageView\');\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=897369755804045&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->',
-                                    width: 1.0,
-                                    height: 1.0,
-                                    verticalScroll: false,
-                                    horizontalScroll: false,
-                                    html: true,
                                   ),
                                 ],
                               ),
