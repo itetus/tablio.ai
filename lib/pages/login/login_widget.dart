@@ -603,8 +603,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 print('Button pressed ...');
                                               },
                                               text: 'Entrar com  Google',
-                                              icon: const FaIcon(
+                                              icon: FaIcon(
                                                 FontAwesomeIcons.google,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(
@@ -662,8 +665,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 print('Button pressed ...');
                                               },
                                               text: 'Entrar com Facebook',
-                                              icon: const FaIcon(
+                                              icon: FaIcon(
                                                 FontAwesomeIcons.facebook,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(
@@ -721,8 +727,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 print('Button pressed ...');
                                               },
                                               text: 'Entrar com Apple',
-                                              icon: const FaIcon(
+                                              icon: FaIcon(
                                                 FontAwesomeIcons.apple,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(

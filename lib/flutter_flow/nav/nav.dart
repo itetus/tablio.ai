@@ -272,7 +272,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  color: FlutterFlowTheme.of(context).primaryText,
                   child: Center(
                     child: Image.asset(
                       'assets/images/logo_tablio_400px_white.png',
