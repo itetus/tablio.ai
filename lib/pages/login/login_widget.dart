@@ -152,7 +152,7 @@ class _LoginWidgetState extends State<LoginWidget>
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -160,73 +160,47 @@ class _LoginWidgetState extends State<LoginWidget>
               Container(
                 width: double.infinity,
                 height: 300.0,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).primaryBackground,
-                      FlutterFlowTheme.of(context).primaryText,
-                      FlutterFlowTheme.of(context).primaryBackground
-                    ],
-                    stops: const [0.0, 0.4, 1.0],
-                    begin: const AlignmentDirectional(-1.0, -1.0),
-                    end: const AlignmentDirectional(1.0, 1.0),
-                  ),
-                ),
-                child: Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        const Color(0x00FFFFFF),
-                        FlutterFlowTheme.of(context).secondaryBackground
-                      ],
-                      stops: const [0.0, 1.0],
-                      begin: const AlignmentDirectional(0.0, -1.0),
-                      end: const AlignmentDirectional(0, 1.0),
+                decoration: const BoxDecoration(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (!(Theme.of(context).brightness == Brightness.dark))
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          'https://storage.tablio.ai/images/logo_tablio_400px.png',
+                          width: 260.0,
+                          height: 200.0,
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation1']!),
+                    if (Theme.of(context).brightness == Brightness.dark)
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
+                          width: 260.0,
+                          height: 200.0,
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation2']!),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      child: Text(
+                        'Preencha os seus dados abaixo.',
+                        style:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (Theme.of(context).brightness == Brightness.dark)
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'https://storage.tablio.ai/images/logo_tablio_400px.png',
-                            width: 260.0,
-                            height: 200.0,
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['imageOnPageLoadAnimation1']!),
-                      if (!(Theme.of(context).brightness == Brightness.dark))
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
-                            width: 260.0,
-                            height: 200.0,
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['imageOnPageLoadAnimation2']!),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: Text(
-                          'Preencha os seus dados abaixo.',
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
               Row(
