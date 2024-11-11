@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -271,10 +272,13 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.white,
-                  child: Image.asset(
-                    'assets/images/mono_tablio.png',
-                    fit: BoxFit.contain,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/logo_tablio_400px_white.png',
+                      width: 400.0,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 )
               : page;
