@@ -163,8 +163,8 @@ class _LoginWidgetState extends State<LoginWidget>
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).error,
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                      FlutterFlowTheme.of(context).primaryText,
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
                     stops: const [0.0, 0.5, 1.0],
@@ -203,7 +203,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             padding: const EdgeInsets.all(8.0),
                             child: Icon(
                               Icons.question_mark,
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               size: 44.0,
                             ).animateOnPageLoad(
                                 animationsMap['iconOnPageLoadAnimation']!),
