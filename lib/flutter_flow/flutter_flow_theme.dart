@@ -8,7 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 const kThemeModeKey = '__theme_mode__';
 SharedPreferences? _prefs;
 
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
   static ThemeMode get themeMode {
@@ -25,6 +33,7 @@ abstract class FlutterFlowTheme {
       : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
 
   static FlutterFlowTheme of(BuildContext context) {
+    deviceSize = getDeviceSize(context);
     return Theme.of(context).brightness == Brightness.dark
         ? DarkModeTheme()
         : LightModeTheme();
@@ -114,7 +123,22 @@ abstract class FlutterFlowTheme {
   String get bodySmallFamily => typography.bodySmallFamily;
   TextStyle get bodySmall => typography.bodySmall;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.sizeOf(context).width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
@@ -176,56 +200,278 @@ abstract class Typography {
   TextStyle get bodySmall;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Sora';
+  String get displayLargeFamily => 'Barlow';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 56.0,
       );
-  String get displayMediumFamily => 'Sora';
+  String get displayMediumFamily => 'Barlow';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Sora';
+  String get displaySmallFamily => 'Barlow';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Sora';
+  String get headlineLargeFamily => 'Barlow';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Sora';
+  String get headlineMediumFamily => 'Barlow';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineSmallFamily => 'Sora';
+  String get headlineSmallFamily => 'Barlow';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Sora';
+  String get titleLargeFamily => 'Barlow';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Sora',
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
+  String get titleMediumFamily => 'Inter';
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.info,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+      );
+  String get titleSmallFamily => 'Inter';
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.info,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelLargeFamily => 'Inter';
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Inter';
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
+  String get labelSmallFamily => 'Inter';
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+      );
+  String get bodyLargeFamily => 'Inter';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontSize: 16.0,
+      );
+  String get bodyMediumFamily => 'Inter';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get bodySmallFamily => 'Inter';
+  TextStyle get bodySmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+}
+
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => 'Barlow';
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 56.0,
+      );
+  String get displayMediumFamily => 'Barlow';
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 44.0,
+      );
+  String get displaySmallFamily => 'Barlow';
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 36.0,
+      );
+  String get headlineLargeFamily => 'Barlow';
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
+  String get headlineMediumFamily => 'Barlow';
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 32.0,
+      );
+  String get headlineSmallFamily => 'Barlow';
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.0,
+      );
+  String get titleLargeFamily => 'Barlow';
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
+  String get titleMediumFamily => 'Inter';
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.info,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+      );
+  String get titleSmallFamily => 'Inter';
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.info,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelLargeFamily => 'Inter';
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Inter';
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
+  String get labelSmallFamily => 'Inter';
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+      );
+  String get bodyLargeFamily => 'Inter';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontSize: 16.0,
+      );
+  String get bodyMediumFamily => 'Inter';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get bodySmallFamily => 'Inter';
+  TextStyle get bodySmall => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => 'Barlow';
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 56.0,
+      );
+  String get displayMediumFamily => 'Barlow';
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 44.0,
+      );
+  String get displaySmallFamily => 'Barlow';
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 36.0,
+      );
+  String get headlineLargeFamily => 'Barlow';
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
+  String get headlineMediumFamily => 'Barlow';
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 32.0,
+      );
+  String get headlineSmallFamily => 'Barlow';
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'Barlow',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.0,
+      );
+  String get titleLargeFamily => 'Barlow';
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'Barlow',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
