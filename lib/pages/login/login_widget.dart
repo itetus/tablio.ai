@@ -36,42 +36,9 @@ class _LoginWidgetState extends State<LoginWidget>
     _model.passwordFocusNode ??= FocusNode();
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'imageOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 300.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.bounceOut,
-            delay: 0.0.ms,
-            duration: 300.0.ms,
-            begin: const Offset(0.6, 1.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'iconOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.bounceOut,
-            delay: 0.0.ms,
-            duration: 1760.0.ms,
-            begin: const Offset(8.0, 8.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 100.ms),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 100.0.ms,
@@ -86,9 +53,42 @@ class _LoginWidgetState extends State<LoginWidget>
             begin: const Offset(0.0, 30.0),
             end: const Offset(0.0, 0.0),
           ),
+          ScaleEffect(
+            curve: Curves.bounceOut,
+            delay: 0.0.ms,
+            duration: 1760.0.ms,
+            begin: const Offset(8.0, 8.0),
+            end: const Offset(1.0, 1.0),
+          ),
         ],
       ),
-      'textOnPageLoadAnimation2': AnimationInfo(
+      'imageOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 400.0.ms,
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.bounceOut,
+            delay: 0.0.ms,
+            duration: 1760.0.ms,
+            begin: const Offset(8.0, 8.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 150.ms),
@@ -163,11 +163,11 @@ class _LoginWidgetState extends State<LoginWidget>
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      FlutterFlowTheme.of(context).secondaryBackground,
+                      FlutterFlowTheme.of(context).primaryBackground,
                       FlutterFlowTheme.of(context).primaryText,
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: const [0.0, 0.5, 1.0],
+                    stops: const [0.0, 0.4, 1.0],
                     begin: const AlignmentDirectional(-1.0, -1.0),
                     end: const AlignmentDirectional(1.0, 1.0),
                   ),
@@ -190,43 +190,28 @@ class _LoginWidgetState extends State<LoginWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).accent4,
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.question_mark,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 44.0,
-                            ).animateOnPageLoad(
-                                animationsMap['iconOnPageLoadAnimation']!),
+                      if (Theme.of(context).brightness == Brightness.dark)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'https://storage.tablio.ai/images/logo_tablio_400px.png',
+                            width: 260.0,
+                            height: 200.0,
+                            fit: BoxFit.fitWidth,
                           ),
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['containerOnPageLoadAnimation']!),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'tablio.ai',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: 'Sora',
-                                fontSize: 42.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w800,
-                              ),
                         ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation1']!),
-                      ),
+                            animationsMap['imageOnPageLoadAnimation1']!),
+                      if (!(Theme.of(context).brightness == Brightness.dark))
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
+                            width: 260.0,
+                            height: 200.0,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation2']!),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -238,7 +223,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     letterSpacing: 0.0,
                                   ),
                         ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation2']!),
+                            animationsMap['textOnPageLoadAnimation']!),
                       ),
                     ],
                   ),
@@ -440,7 +425,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
