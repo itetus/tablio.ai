@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -165,28 +166,82 @@ class _LoginWidgetState extends State<LoginWidget>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if (!(Theme.of(context).brightness == Brightness.dark))
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://storage.tablio.ai/images/logo_tablio_400px.png',
-                          width: 230.0,
-                          height: 200.0,
-                          fit: BoxFit.fitWidth,
+                    AlignedTooltip(
+                      content: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          'Message...',
+                          style:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation1']!),
-                    if (Theme.of(context).brightness == Brightness.dark)
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
-                          width: 230.0,
-                          height: 200.0,
-                          fit: BoxFit.fitWidth,
+                      ),
+                      offset: 4.0,
+                      preferredDirection: AxisDirection.down,
+                      borderRadius: BorderRadius.circular(8.0),
+                      backgroundColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 4.0,
+                      tailBaseWidth: 24.0,
+                      tailLength: 12.0,
+                      waitDuration: const Duration(milliseconds: 100),
+                      showDuration: const Duration(milliseconds: 1500),
+                      triggerMode: TooltipTriggerMode.tap,
+                      child: Visibility(
+                        visible:
+                            !(Theme.of(context).brightness == Brightness.dark),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'https://storage.tablio.ai/images/logo_tablio_400px.png',
+                            width: 230.0,
+                            height: 200.0,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation1']!),
+                      ),
+                    ),
+                    AlignedTooltip(
+                      content: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          'Message...',
+                          style:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation2']!),
+                      ),
+                      offset: 4.0,
+                      preferredDirection: AxisDirection.down,
+                      borderRadius: BorderRadius.circular(8.0),
+                      backgroundColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 4.0,
+                      tailBaseWidth: 24.0,
+                      tailLength: 12.0,
+                      waitDuration: const Duration(milliseconds: 100),
+                      showDuration: const Duration(milliseconds: 1500),
+                      triggerMode: TooltipTriggerMode.tap,
+                      child: Visibility(
+                        visible:
+                            Theme.of(context).brightness == Brightness.dark,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
+                            width: 230.0,
+                            height: 200.0,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation2']!),
+                      ),
+                    ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
