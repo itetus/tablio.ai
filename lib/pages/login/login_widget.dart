@@ -62,8 +62,8 @@ class _LoginWidgetState extends State<LoginWidget>
           ScaleEffect(
             curve: Curves.bounceOut,
             delay: 0.0.ms,
-            duration: 1260.0.ms,
-            begin: const Offset(5.0, 5.0),
+            duration: 1760.0.ms,
+            begin: const Offset(8.0, 8.0),
             end: const Offset(1.0, 1.0),
           ),
         ],
