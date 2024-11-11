@@ -170,7 +170,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
                           'https://storage.tablio.ai/images/logo_tablio_400px.png',
-                          width: 260.0,
+                          width: 230.0,
                           height: 200.0,
                           fit: BoxFit.fitWidth,
                         ),
@@ -181,7 +181,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
                           'https://storage.tablio.ai/images/logo_tablio_400px_white.png',
-                          width: 260.0,
+                          width: 230.0,
                           height: 200.0,
                           fit: BoxFit.fitWidth,
                         ),
@@ -431,7 +431,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -441,7 +441,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   elevation: 0.0,
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .primaryBackground,
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -605,6 +605,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
+                                      fontSize: 10.0,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -622,6 +623,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
