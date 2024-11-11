@@ -790,10 +790,12 @@ class _LoginWidgetState extends State<LoginWidget>
                             ],
                           ),
                           Row(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
