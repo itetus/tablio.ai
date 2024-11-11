@@ -165,7 +165,7 @@ class _LoginWidgetState extends State<LoginWidget>
                     colors: [
                       FlutterFlowTheme.of(context).primary,
                       FlutterFlowTheme.of(context).error,
-                      FlutterFlowTheme.of(context).tertiary
+                      FlutterFlowTheme.of(context).primaryBackground
                     ],
                     stops: const [0.0, 0.5, 1.0],
                     begin: const AlignmentDirectional(-1.0, -1.0),
