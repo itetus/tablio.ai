@@ -304,6 +304,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -343,13 +344,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  contentPadding: const EdgeInsets.all(24.0),
+                                  contentPadding: const EdgeInsets.all(20.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodyMediumFamily,
+                                      fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
@@ -381,6 +383,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -420,7 +423,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  contentPadding: const EdgeInsets.all(24.0),
+                                  contentPadding: const EdgeInsets.all(20.0),
                                   suffixIcon: InkWell(
                                     onTap: () => safeSetState(
                                       () => _model.passwordVisibility =
@@ -442,6 +445,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodyMediumFamily,
+                                      fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
@@ -479,7 +483,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                 text: 'Entrar',
                                 options: FFButtonOptions(
                                   width: 230.0,
-                                  height: 52.0,
+                                  height: 46.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -492,6 +496,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                             .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondary,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
