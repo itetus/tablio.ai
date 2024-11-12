@@ -89,6 +89,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Login',
           path: '/login',
           builder: (context, params) => const LoginWidget(),
+        ),
+        FFRoute(
+          name: 'Profile-Restaurante',
+          path: '/profileRestaurante',
+          builder: (context, params) => const ProfileRestauranteWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
